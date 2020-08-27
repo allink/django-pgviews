@@ -10,7 +10,11 @@ from django.core import exceptions
 from django.db import connection, transaction
 from django.db.models.query import QuerySet
 from django.db import models
-from django.utils import six
+try:
+    from django.utils import six
+except ImportError:
+    # Django 3.x compatibility
+    import six
 from django.apps import apps
 import psycopg2
 
